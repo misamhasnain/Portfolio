@@ -1,0 +1,69 @@
+.link {
+  position: relative;
+  color: rgb(var(--color-ink));
+  background: rgb(var(--color-surface) / 0.7);
+  border: 1px solid rgb(var(--color-line));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Blue to violet fill that fades in on hover / keyboard focus */
+.link::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(var(--color-blue)), rgb(var(--color-violet)));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 28px -10px rgb(var(--color-violet) / 0.65);
+}
+
+.link:hover::before,
+.link:focus-visible::before {
+  opacity: 1;
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  z-index: 2;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: rgb(var(--color-surface));
+  background: rgb(var(--color-ink));
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.link:hover .tooltip,
+.link:focus-visible .tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* No hover on touch screens: skip the tooltip there */
+@media (hover: none) {
+  .tooltip {
+    display: none;
+  }
+}

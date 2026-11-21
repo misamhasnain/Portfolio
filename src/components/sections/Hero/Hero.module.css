@@ -1,0 +1,43 @@
+.root {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  padding: 7rem 1rem 5rem;
+  overflow: hidden;
+}
+
+/* Futuristic grid fading out toward the edges */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(var(--color-line) / 0.7) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--color-line) / 0.7) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+  pointer-events: none;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Static fallback used when 3D is off (mobile, low-end, reduced motion) */
+.orb {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 30% 28%, #fff 0, rgb(255 255 255 / 0) 28%),
+    linear-gradient(135deg, rgb(var(--color-blue)), rgb(var(--color-violet)));
+}

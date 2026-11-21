@@ -1,0 +1,6 @@
+.timeline {
+  position: relative;
+  margin-left: 1.25rem;
+  padding-left: 2rem;
+  border-left: 2px solid rgb(var(--color-violet) / 0.25);
+}

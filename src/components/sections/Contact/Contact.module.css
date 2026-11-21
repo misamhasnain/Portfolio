@@ -1,0 +1,29 @@
+.field {
+  width: 100%;
+  border-radius: 0.875rem;
+  border: 1px solid rgb(var(--color-line));
+  background: rgb(var(--color-surface) / 0.8);
+  padding: 0.75rem 1rem;
+  font: inherit;
+  color: rgb(var(--color-ink));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field::placeholder {
+  color: rgb(var(--color-muted) / 0.8);
+}
+
+.field:focus {
+  outline: none;
+  border-color: rgb(var(--color-violet));
+  box-shadow: 0 0 0 4px rgb(var(--color-violet) / 0.15);
+}
+
+/* Honeypot field: hidden from people, visible to spam bots */
+.trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
